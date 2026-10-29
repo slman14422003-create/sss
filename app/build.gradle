@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android' version '1.9.22' // فقط لتفعيل kapt، لا نكتب كوتلن في الكود
 }
 
 android {
@@ -13,44 +12,22 @@ android {
         versionCode 1
         versionName "1.0"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [room.schemaLocation:"$projectDir/schemas".toString()]
-            }
-        }
-
-        // تفعيل ViewBinding
+        // تمكين ViewBinding لتسهيل التعامل مع الواجهات
         buildFeatures {
             viewBinding true
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-
-    // لتجنب تحذيرات Kotlin في المشروع (نستخدم kapt فقط)
-    kotlinOptions {
-        jvmTarget = "11"
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
 dependencies {
-    // AndroidX
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
     implementation 'com.google.android.material:material:1.12.0'
-
-    // Lifecycle & ViewModel
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.7.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.7.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.7.0'
-
-    // Room (SQL)
-    implementation 'androidx.room:room-runtime:2.6.1'
-    annotationProcessor 'androidx.room:room-compiler:2.6.1'
-
-    // Optional: لتسهيل DiffUtil مع ListAdapter
-    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
 }

@@ -1,4 +1,4 @@
-// مستوى المشروع
+// ملف build.gradle على مستوى المشروع
 buildscript {
     repositories {
         google()

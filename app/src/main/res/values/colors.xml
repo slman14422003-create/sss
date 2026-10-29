@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ألوان مستوحاة من تصميم iOS -->
+    <color name="background">#F2F2F7</color>
+    <color name="bubble_sent">#007AFF</color>
+    <color name="bubble_received">#E5E5EA</color>
+    <color name="input_bg">#FFFFFF</color>
+    <color name="primary">#007AFF</color>
+    <color name="primaryVariant">#0051A8</color>
+    <color name="secondary">#34C759</color>
+</resources>
